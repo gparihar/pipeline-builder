@@ -1,0 +1,234 @@
+/* Base Node Styles */
+:root {
+  --primary-color: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary-color: #ec4899;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --bg-dark: #1f2937;
+  --bg-darker: #111827;
+  --border-color: #374151;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.base-node {
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-darker));
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0;
+  min-width: 250px;
+  min-height: 100px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: all 0.2s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  color: var(--text-primary);
+}
+
+.base-node.selected {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5), var(--shadow);
+}
+
+.base-node.connecting {
+  opacity: 0.7;
+}
+
+/* Node Type Specific Colors */
+.node-type-input {
+  border-top: 3px solid var(--success-color);
+}
+
+.node-type-output {
+  border-top: 3px solid var(--danger-color);
+}
+
+.node-type-text {
+  border-top: 3px solid var(--primary-color);
+}
+
+.node-type-llm {
+  border-top: 3px solid var(--warning-color);
+}
+
+.node-type-math {
+  border-top: 3px solid #06b6d4;
+}
+
+.node-type-filter {
+  border-top: 3px solid #a855f7;
+}
+
+.node-type-string {
+  border-top: 3px solid #f97316;
+}
+
+/* Node Header */
+.node-header {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.node-label {
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+}
+
+/* Node Content */
+.node-content {
+  padding: 12px;
+  min-height: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-node-content,
+.text-node-content,
+.output-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Input Fields */
+.input-field,
+.text-input {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 8px;
+  font-size: 12px;
+  font-family: monospace;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus,
+.text-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.input-field::placeholder,
+.text-input::placeholder {
+  color: var(--text-secondary);
+}
+
+/* Select Elements */
+select {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+select option {
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+/* Range Input */
+input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+  accent-color: var(--primary-color);
+}
+
+/* Output Display */
+.output-display {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: monospace;
+  color: var(--success-color);
+  word-break: break-all;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+/* Variables List */
+.variables-list {
+  background-color: rgba(236, 72, 153, 0.1);
+  padding: 6px 8px;
+  border-radius: 4px;
+  border-left: 2px solid var(--secondary-color);
+  color: var(--text-secondary);
+  font-size: 11px;
+}
+
+/* Handle Styling */
+.react-flow__handle {
+  background-color: var(--primary-color);
+  border: 2px solid var(--bg-darker);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.react-flow__handle:hover {
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+}
+
+.react-flow__handle.connectable {
+  cursor: grab;
+}
+
+.react-flow__handle.connecting {
+  background-color: var(--secondary-color);
+}
+
+/* Label styling for handles */
+.react-flow__handle-label {
+  background-color: var(--bg-darker);
+  color: var(--text-primary);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}

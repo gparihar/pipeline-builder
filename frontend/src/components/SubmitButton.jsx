@@ -20,13 +20,16 @@ const SubmitButton = ({ nodes, edges, onResponse }) => {
         })),
       };
 
-      const response = await fetch("http://127.0.0.1:8000/pipelines/parse", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
+      const response = await fetch(
+        "https://pipeline-builder-fsyx.onrender.com/pipelines/parse",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await response.json();
 
